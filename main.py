@@ -4,7 +4,7 @@ from multiprocessing import Process
 import json
 
 threadnumber= [0, 0, 0, 0, 0]
-startrow= 1
+startrow= 0
 
 def load_json_file(filename: str) -> dict:
     with open(filename) as file_stream:
@@ -22,9 +22,17 @@ try:
 except ValueError:
     totprocess= 1
 
-
 wb= openpyxl.load_workbook(list, data_only= True)
 ws= wb['Sheet1']
+
+while True:
+    try:
+        video_id= int(ws.cell(startrow+1, 2).value)
+    except ValueError:
+        startrow= startrow+1
+    else:
+        break
+   
 
 def run(url, id, pw):
     os.system(f'youtube-dl --username {id} --password {pw} {url}')
@@ -39,17 +47,18 @@ def job(processnum):
             break
         url = f'https://vlive.tv/video/{urlid}'
         run(url, id, pw)
-        print(f"==== Process {processnum} {url} ====")
 
         threadnumber[processnum] = threadnumber[processnum] + totprocess
 
-procs= []
 
-for i in range(totprocess):
-    proc= Process(target= job, args= (i,),)
-    print(f"========Process {i} is running========")
-    proc.start()
-    procs.append(proc)
+if __name__ == "__main__":
+    procs= []
 
-for proc in procs:
-    proc.join()
+    for i in range(totprocess):
+        proc= Process(target= job, args= (i,),)
+        print(f"========Process {i} is running========")
+        proc.start()
+        procs.append(proc)
+
+    for proc in procs:
+        proc.join()

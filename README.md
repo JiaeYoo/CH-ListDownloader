@@ -4,11 +4,21 @@
 따라서 이 프로그램을 이용하려면 [youtube-dl]('https://github.com/ytdl-org/youtube-dl')이 필수적으로 요구됩니다.
 <br/><br/>
 ***
+
 ## Changelog
 
 ### v1.1
 
  - 프로그램이 종료된 후 재시작되어도 이전 진행상황을 유지합니다.
+
+### v1.2
+ - windows에서 log.json이 삭제되지 않던 문제 해결.
+ - ID, PW에 특수문자가 포함될 경우 escape될 수 있었던 문제 해결
+ - 리스트의 데이터가 숫자가 아닌 경우에 대한 예외처리
+ <br><br>
+[eugenee03]('https://github.com/eugenee03') 님이 기여해주셨습니다.
+<br>
+***
 
 ## youtube-dl 다운로드 가이드
 <br/>
@@ -55,6 +65,7 @@ Windows 시스템 유저는 [.exe 파일을](https://yt-dl.org/latest/youtube-dl
 <br/>
 `list`는 다운로드할 동영상 목록이 있는 파일입니다. `xlsx/xlsm/xltx/xltm` 포맷을 지원하며, 동영상 ID는 파일의 `Sheet 1`, `Column 2`에 위치해야 합니다.<br/>
 `multiprocess` 필드는 동시에 작동할 youtube-dl의 수를 설정하며, 큰 값일 수록 동시에 많은 양의 동영상을 다운로드합니다. 이 필드가 공백일 경우 하나의 프로세스만 동작합니다.<br/><br/>
+
 **Note!** `multiprocess` 값이 5 이상일 경우 로그인에 실패하는 경우가 보고되었습니다. 이 문제를 수정하기 전까진 `multiprocess`를 3 이하로 설정하는 것을 권장합니다.
 <br/><br/>
 

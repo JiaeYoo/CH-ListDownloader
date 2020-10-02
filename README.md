@@ -15,7 +15,8 @@
  - windows에서 log.json이 삭제되지 않던 문제 해결.
  - ID, PW에 특수문자가 포함될 경우 escape될 수 있었던 문제 해결
  - 리스트의 데이터가 숫자가 아닌 경우에 대한 예외처리
- <br><br>
+ - 프로세스를 데몬 프로세스로 변경하여 Linux 환경에서 CTRL+C로 프로세스가 종료되지 않는 문제를 해결함.
+ <br>
  
 [eugenee03](https://github.com/eugenee03) 님이 기여해주셨습니다.
 

@@ -1,4 +1,7 @@
-# Vlive List Downloader
+# Unforgettable
+
+Vlive의 영상을 아카이브할 수 있게 도와주는 프로그램입니다. 동시에 여러 영상을 다운로드할 수 있습니다.
+
 유명한 동영상 다운로드 프로그램인 [youtube-dl]('https://github.com/ytdl-org/youtube-dl')을 이용해 여러 동영상을 동시에 다운로드 할 수 있게 도와줍니다.
 <br/>
 따라서 이 프로그램을 이용하려면 [youtube-dl]('https://github.com/ytdl-org/youtube-dl')이 필수적으로 요구됩니다.

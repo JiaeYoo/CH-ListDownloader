@@ -16,8 +16,11 @@
  - ID, PW에 특수문자가 포함될 경우 escape될 수 있었던 문제 해결
  - 리스트의 데이터가 숫자가 아닌 경우에 대한 예외처리
  <br><br>
+ 
 [eugenee03]('https://github.com/eugenee03') 님이 기여해주셨습니다.
+
 <br>
+
 ***
 
 ## youtube-dl 다운로드 가이드
@@ -48,7 +51,10 @@ Windows 시스템 유저는 [.exe 파일을](https://yt-dl.org/latest/youtube-dl
 
 ## Vlive List Downloader 사용법
 
-**Note!** 프로그램 실행 전 터미널에서 `youtube-dl --version` 을 입력해 `youtube-dl`이 정상적으로 동작하는지 확인해 주세요. 입력할 ID와 PW는 [Vlive 프로필 설정]('https://vlive.tv/my/profile') 의 `계정 설정` 에서 등록한 이메일과 패스워드여야 합니다.<br/><br/>
+**Note!** 프로그램 실행 전 터미널에서 `youtube-dl --version` 을 입력해 `youtube-dl`이 정상적으로 동작하는지 확인해 주세요. 입력할 ID와 PW는 
+[Vlive 프로필 설정]('https://vlive.tv/my/profile') 의 `계정 설정` 에서 등록한 이메일과 패스워드여야 합니다.
+
+<br/><br/>
 
 ### 1. 프로젝트 폴더에 위치한 `credentials.json` 파일을 문서 편집기로 열어주세요. 
 <br/>

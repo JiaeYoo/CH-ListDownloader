@@ -1,10 +1,13 @@
 import openpyxl
 import os
+import platform
 from multiprocessing import Process
 import json
 
 process_number= []
 startrow= 0
+
+platform_name = platform.system()
 
 def load_json_file(filename: str) -> dict:
     with open(filename, encoding='utf-8') as file_stream:
@@ -17,7 +20,10 @@ def fix_json_file(filename: str, filedata: dict):
 
 def make_json_file(filename: str):
     try:
-        os.system('rm -rf ./log.json')
+        if platform_name == "Windows":
+            os.system('del log.json')
+        else:
+            os.system('rm -rf ./log.json')
     except:
         with open(filename, 'w', encoding='utf-8') as _:
             pass
@@ -65,7 +71,7 @@ except :
 
 
 def run(url, id, pw):
-    os.system(f'youtube-dl --username {id} --password {pw} {url}')
+    os.system(f'youtube-dl --username \"{id}\" --password \"{pw}\" \"{url}\"')
 
 def job(processnum: int):
     global list
@@ -83,12 +89,14 @@ def job(processnum: int):
 
             fix_json_file('log.json', json_data)
 
-        if urlid == 'None':
+        if urlid.isdigit():
+            url = f'https://vlive.tv/video/{urlid}'
+            print(f"{url} {row}")
+            run(url, id, pw)
+        elif urlid == 'None':
             break
-        url = f'https://vlive.tv/video/{urlid}'
-
-        print(f"{url} {row}")
-        run(url, id, pw)
+        else:
+            pass
 
         process_number[processnum] = process_number[processnum] + totprocess
 
@@ -98,6 +106,7 @@ if __name__ == "__main__":
 
     for i in range(totprocess):
         proc= Process(target= job, args= (i,),)
+        proc.daemon = True
         print(f"========Process {i} is running========")
         proc.start()
         procs.append(proc)
